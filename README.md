@@ -1,5 +1,5 @@
 # superstar-song-generator
-Project is supposed to generate superstar songs using ChatGPT as a music producer and DALL-E as an album cover designer. 
+Project is supposed to generate superstar songs using ChatGPT as a music producer and DALL-E as an album cover designer.
 
 In fact it's just an educational app that presents usage of gRPC as a communication tool in microservices applications.
 
@@ -13,6 +13,7 @@ TODO:
   - [X] Another interesting interceptors
   - [X] Sentry integration (and other integrations)
   - [ ] Read more about strategy/strategies used to send data (unary, bidirectional, client-streaming, server-streaming)
+  - [ ] versioning proto files
 
 
 # Interceptors
@@ -32,4 +33,4 @@ SSL/TLS + Custom Header with token https://grpc.io/docs/guides/auth/#with-server
 # Strategies
 https://grpc.io/docs/what-is-grpc/core-concepts/#rpc-life-cycle
 
-Generally all four strategies are available (unary, response-streaming, request-streaming, bidirectional streaming), **BUT** [Best Practices for Python](https://grpc.io/docs/guides/performance/#python) discourage developers to use streaming, as it creates more threads and makes it much slower than unary RPCs. Thank you GIL, once again :D 
+Generally all four strategies are available (unary, response-streaming, request-streaming, bidirectional streaming), **BUT** [Best Practices for Python](https://grpc.io/docs/guides/performance/#python) discourage developers to use streaming, as it creates more threads and makes it much slower than unary RPCs. Thank you GIL, once again :D

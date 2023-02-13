@@ -1,0 +1,32 @@
+syntax = "proto3";
+// specification can be found here https://developers.google.com/protocol-buffers/docs/proto3#services
+enum MusicCategory {
+    GANGSTA_RAP = 0;
+    HEAVY_METAL = 1;
+    POLISH_DISCO_POLO = 2;
+}
+
+message MakeMeSuperstarRequest {
+    MusicCategory category = 1;
+    int32 songs_count = 2;
+    string songs_theme = 3;
+    string cover_description = 4;
+}
+
+message Song {
+    string title = 1;
+    string text = 2;
+}
+
+message Cover {
+    string url = 1;
+}
+
+message Album {
+    Cover cover = 1;
+    repeated Song songs = 2;
+}
+
+service SongGenerator {
+    rpc make_me_superstar (MakeMeSuperstarRequest) returns (Album);
+}

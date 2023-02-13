@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+    client:
+        build:
+            context: .
+            dockerfile: client/docker/Dockerfile
+        environment:
+            - RESOURCE_SERVER=server
+        ports:
+            - 8000:8000
+
+    server:
+        build:
+            context: .
+            dockerfile: server/docker/Dockerfile
+        ports:
+            - 50051:50051
