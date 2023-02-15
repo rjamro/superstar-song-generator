@@ -9,9 +9,8 @@ ENV PYTHONFAULTHANDLER=1 \
 
 WORKDIR /code
 
-COPY client/main.py /code
+COPY client/ /code
 COPY song_generator/ /code/song_generator
-COPY client/requirements.txt /code
 
 RUN python -m pip install -r requirements.txt
 
