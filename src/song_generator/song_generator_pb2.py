@@ -11,25 +11,19 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
+import song_generator.base_pb2 as base__pb2
+import song_generator.enums_pb2 as enums__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x14song_generator.proto\"\x7f\n\x16MakeMeSuperstarRequest\x12 \n\x08\x63\x61tegory\x18\x01 \x01(\x0e\x32\x0e.MusicCategory\x12\x13\n\x0bsongs_count\x18\x02 \x01(\x05\x12\x13\n\x0bsongs_theme\x18\x03 \x01(\t\x12\x19\n\x11\x63over_description\x18\x04 \x01(\t\"#\n\x04Song\x12\r\n\x05title\x18\x01 \x01(\t\x12\x0c\n\x04text\x18\x02 \x01(\t\"\x14\n\x05\x43over\x12\x0b\n\x03url\x18\x01 \x01(\t\"4\n\x05\x41lbum\x12\x15\n\x05\x63over\x18\x01 \x01(\x0b\x32\x06.Cover\x12\x14\n\x05songs\x18\x02 \x03(\x0b\x32\x05.Song*H\n\rMusicCategory\x12\x0f\n\x0bGANGSTA_RAP\x10\x00\x12\x0f\n\x0bHEAVY_METAL\x10\x01\x12\x15\n\x11POLISH_DISCO_POLO\x10\x02\x32\x45\n\rSongGenerator\x12\x34\n\x11make_me_superstar\x12\x17.MakeMeSuperstarRequest\x1a\x06.Albumb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x14song_generator.proto\x1a\nbase.proto\x1a\x0b\x65nums.proto\"\x7f\n\x16MakeMeSuperstarRequest\x12 \n\x08\x63\x61tegory\x18\x01 \x01(\x0e\x32\x0e.MusicCategory\x12\x13\n\x0bsongs_count\x18\x02 \x01(\x05\x12\x13\n\x0bsongs_theme\x18\x03 \x01(\t\x12\x19\n\x11\x63over_description\x18\x04 \x01(\t2E\n\rSongGenerator\x12\x34\n\x11make_me_superstar\x12\x17.MakeMeSuperstarRequest\x1a\x06.Albumb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'song_generator_pb2', globals())
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
-  _MUSICCATEGORY._serialized_start=266
-  _MUSICCATEGORY._serialized_end=338
-  _MAKEMESUPERSTARREQUEST._serialized_start=24
-  _MAKEMESUPERSTARREQUEST._serialized_end=151
-  _SONG._serialized_start=153
-  _SONG._serialized_end=188
-  _COVER._serialized_start=190
-  _COVER._serialized_end=210
-  _ALBUM._serialized_start=212
-  _ALBUM._serialized_end=264
-  _SONGGENERATOR._serialized_start=340
-  _SONGGENERATOR._serialized_end=409
+  _MAKEMESUPERSTARREQUEST._serialized_start=49
+  _MAKEMESUPERSTARREQUEST._serialized_end=176
+  _SONGGENERATOR._serialized_start=178
+  _SONGGENERATOR._serialized_end=247
 # @@protoc_insertion_point(module_scope)

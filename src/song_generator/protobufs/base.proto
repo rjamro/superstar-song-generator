@@ -1,0 +1,15 @@
+syntax = "proto3"; // This must be in the first line of the proto. If not specified, proto2 is assumed
+
+message Song {
+    string title = 1;
+    string text = 2;
+}
+
+message Cover {
+    string url = 1;
+}
+
+message Album {
+    Cover cover = 1;
+    repeated Song songs = 2;
+}

@@ -2,6 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
+import song_generator.base_pb2 as base__pb2
 import song_generator.song_generator_pb2 as song__generator__pb2
 
 
@@ -17,7 +18,7 @@ class SongGeneratorStub(object):
         self.make_me_superstar = channel.unary_unary(
                 '/SongGenerator/make_me_superstar',
                 request_serializer=song__generator__pb2.MakeMeSuperstarRequest.SerializeToString,
-                response_deserializer=song__generator__pb2.Album.FromString,
+                response_deserializer=base__pb2.Album.FromString,
                 )
 
 
@@ -36,7 +37,7 @@ def add_SongGeneratorServicer_to_server(servicer, server):
             'make_me_superstar': grpc.unary_unary_rpc_method_handler(
                     servicer.make_me_superstar,
                     request_deserializer=song__generator__pb2.MakeMeSuperstarRequest.FromString,
-                    response_serializer=song__generator__pb2.Album.SerializeToString,
+                    response_serializer=base__pb2.Album.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -61,6 +62,6 @@ class SongGenerator(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/SongGenerator/make_me_superstar',
             song__generator__pb2.MakeMeSuperstarRequest.SerializeToString,
-            song__generator__pb2.Album.FromString,
+            base__pb2.Album.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

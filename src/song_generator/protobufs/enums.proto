@@ -1,0 +1,7 @@
+syntax = "proto3"; // This must be in the first line of the proto. If not specified, proto2 is assumed
+
+enum MusicCategory {
+    GANGSTA_RAP = 0;
+    HEAVY_METAL = 1;
+    POLISH_DISCO_POLO = 2;
+}

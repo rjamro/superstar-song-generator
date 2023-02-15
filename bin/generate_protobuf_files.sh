@@ -4,4 +4,7 @@ python -m grpc_tools.protoc \
 --pyi_out=./src/song_generator \
 --python_out=./src/song_generator \
 --grpc_python_out=./src/song_generator \
-./src/song_generator/protobufs/song_generator.proto
+--include_imports \
+./src/song_generator/protobufs/song_generator.proto \
+./src/song_generator/protobufs/base.proto \
+./src/song_generator/protobufs/enums.proto
