@@ -9,11 +9,10 @@ ENV PYTHONFAULTHANDLER=1 \
 
 WORKDIR /code
 
-COPY server/server.py /code/server.py
+COPY server/ /code
 COPY song_generator/ /code/song_generator/
-COPY server/requirements.txt /code
 
 RUN python -m pip install -r requirements.txt
 
 EXPOSE 50051
-CMD [ "python", "server.py" ]
+CMD [ "python", "main.py" ]
