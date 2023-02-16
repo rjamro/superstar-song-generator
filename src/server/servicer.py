@@ -1,11 +1,14 @@
+import grpc
 from data_provider.openapi_proxy import OpenAIProxy
-from song_generator.song_generator_pb2 import LyricsRequest, MakeMeSuperstarRequest
-from song_generator.song_generator_pb2_grpc import SongGeneratorServicer
+
 from song_generator.base_pb2 import Album, Cover, Song
+from song_generator.song_generator_pb2 import (LyricsRequest,
+                                               MakeMeSuperstarRequest)
+from song_generator.song_generator_pb2_grpc import SongGeneratorServicer
 
 
 class SongGeneratorService(SongGeneratorServicer):
-    def make_me_superstar(self, request: MakeMeSuperstarRequest, context) -> Album:
+    def make_me_superstar(self, request: MakeMeSuperstarRequest, context: grpc.ServicerContext) -> Album:
         cover = OpenAIProxy().create_album_cover(cover_description=str(request.cover_description))
         lyrics = OpenAIProxy().create_lyrics(
             song_theme=request.songs_theme,
@@ -18,7 +21,7 @@ class SongGeneratorService(SongGeneratorServicer):
             songs=self._transform_to_songs_domain(lyrics=lyrics, titles=titles),
         )
 
-    def generate_lyrics(self, request: LyricsRequest, context) -> list[Song]:
+    def generate_lyrics(self, request: LyricsRequest, context: grpc.ServicerContext) -> list[Song]:
         for _ in range(request.songs_count):
             lyrics = OpenAIProxy().create_lyrics(
                 song_theme=request.songs_theme,

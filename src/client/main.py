@@ -1,10 +1,13 @@
-from fastapi import FastAPI
 import os
 
 import grpc
-from models.make_me_superstar import Album, Song, SongsPayload, SuperstarPayload
+from fastapi import FastAPI
+from models.make_me_superstar import (Album, Song, SongsPayload,
+                                      SuperstarPayload)
+
+from song_generator.song_generator_pb2 import (LyricsRequest,
+                                               MakeMeSuperstarRequest)
 from song_generator.song_generator_pb2_grpc import SongGeneratorStub
-from song_generator.song_generator_pb2 import MakeMeSuperstarRequest, LyricsRequest
 
 app = FastAPI()
 
