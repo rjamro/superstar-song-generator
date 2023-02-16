@@ -23,3 +23,9 @@ class SuperstarPayload(BaseModel):
     songs_count: int
     songs_theme: str
     cover_description: str
+
+
+class SongsPayload(BaseModel):
+    category: MusicCategoryEnum
+    songs_count: int
+    songs_theme: str

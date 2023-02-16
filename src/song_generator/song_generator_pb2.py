@@ -15,7 +15,7 @@ import song_generator.base_pb2 as base__pb2
 import song_generator.enums_pb2 as enums__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x14song_generator.proto\x1a\nbase.proto\x1a\x0b\x65nums.proto\"\x7f\n\x16MakeMeSuperstarRequest\x12 \n\x08\x63\x61tegory\x18\x01 \x01(\x0e\x32\x0e.MusicCategory\x12\x13\n\x0bsongs_count\x18\x02 \x01(\x05\x12\x13\n\x0bsongs_theme\x18\x03 \x01(\t\x12\x19\n\x11\x63over_description\x18\x04 \x01(\t2E\n\rSongGenerator\x12\x34\n\x11make_me_superstar\x12\x17.MakeMeSuperstarRequest\x1a\x06.Albumb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x14song_generator.proto\x1a\nbase.proto\x1a\x0b\x65nums.proto\"\x7f\n\x16MakeMeSuperstarRequest\x12 \n\x08\x63\x61tegory\x18\x01 \x01(\x0e\x32\x0e.MusicCategory\x12\x13\n\x0bsongs_count\x18\x02 \x01(\x05\x12\x13\n\x0bsongs_theme\x18\x03 \x01(\t\x12\x19\n\x11\x63over_description\x18\x04 \x01(\t\"[\n\rLyricsRequest\x12 \n\x08\x63\x61tegory\x18\x01 \x01(\x0e\x32\x0e.MusicCategory\x12\x13\n\x0bsongs_count\x18\x02 \x01(\x05\x12\x13\n\x0bsongs_theme\x18\x03 \x01(\t2q\n\rSongGenerator\x12\x34\n\x11make_me_superstar\x12\x17.MakeMeSuperstarRequest\x1a\x06.Album\x12*\n\x0fgenerate_lyrics\x12\x0e.LyricsRequest\x1a\x05.Song0\x01\x62\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'song_generator_pb2', globals())
@@ -24,6 +24,8 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._options = None
   _MAKEMESUPERSTARREQUEST._serialized_start=49
   _MAKEMESUPERSTARREQUEST._serialized_end=176
-  _SONGGENERATOR._serialized_start=178
-  _SONGGENERATOR._serialized_end=247
+  _LYRICSREQUEST._serialized_start=178
+  _LYRICSREQUEST._serialized_end=269
+  _SONGGENERATOR._serialized_start=271
+  _SONGGENERATOR._serialized_end=384
 # @@protoc_insertion_point(module_scope)

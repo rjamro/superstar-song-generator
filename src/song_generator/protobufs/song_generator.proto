@@ -11,6 +11,13 @@ message MakeMeSuperstarRequest {
     string cover_description = 4;
 }
 
+message LyricsRequest {
+    MusicCategory category = 1;
+    int32 songs_count = 2;
+    string songs_theme = 3;
+}
+
 service SongGenerator {
     rpc make_me_superstar (MakeMeSuperstarRequest) returns (Album);
+    rpc generate_lyrics (LyricsRequest) returns (stream Song);
 }

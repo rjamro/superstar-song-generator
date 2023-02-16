@@ -20,12 +20,23 @@ class SongGeneratorStub(object):
                 request_serializer=song__generator__pb2.MakeMeSuperstarRequest.SerializeToString,
                 response_deserializer=base__pb2.Album.FromString,
                 )
+        self.generate_lyrics = channel.unary_stream(
+                '/SongGenerator/generate_lyrics',
+                request_serializer=song__generator__pb2.LyricsRequest.SerializeToString,
+                response_deserializer=base__pb2.Song.FromString,
+                )
 
 
 class SongGeneratorServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def make_me_superstar(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def generate_lyrics(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -38,6 +49,11 @@ def add_SongGeneratorServicer_to_server(servicer, server):
                     servicer.make_me_superstar,
                     request_deserializer=song__generator__pb2.MakeMeSuperstarRequest.FromString,
                     response_serializer=base__pb2.Album.SerializeToString,
+            ),
+            'generate_lyrics': grpc.unary_stream_rpc_method_handler(
+                    servicer.generate_lyrics,
+                    request_deserializer=song__generator__pb2.LyricsRequest.FromString,
+                    response_serializer=base__pb2.Song.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -63,5 +79,22 @@ class SongGenerator(object):
         return grpc.experimental.unary_unary(request, target, '/SongGenerator/make_me_superstar',
             song__generator__pb2.MakeMeSuperstarRequest.SerializeToString,
             base__pb2.Album.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def generate_lyrics(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/SongGenerator/generate_lyrics',
+            song__generator__pb2.LyricsRequest.SerializeToString,
+            base__pb2.Song.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
