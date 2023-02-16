@@ -14,6 +14,16 @@ logging.basicConfig(
     format='%(levelname)s:\t%(asctime)s - %(message)s',
 )
 
+def get_server_credentials() -> grpc.ServerCredentials:
+    with open("certs/server.key", "rb") as fp:
+        server_key = fp.read()
+    with open("certs/server.pem", "rb") as fp:
+        server_cert = fp.read()
+
+    return grpc.ssl_server_credentials(
+        private_key_certificate_chain_pairs=[(server_key, server_cert)],
+    )
+
 
 def main():
     interceptors = [LoggingInterceptor()]
@@ -25,9 +35,9 @@ def main():
         servicer=SongGeneratorService(),
         server=server,
     )
-    server.add_insecure_port('[::]:50051')
+    server.add_secure_port('[::]:50053', server_credentials=get_server_credentials())
     server.start()
-    print('Listen to port 50051 [*]:')
+    print('Listen to port 50053 [*]:')
     server.wait_for_termination()
 
 if __name__ == '__main__':

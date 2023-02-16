@@ -12,7 +12,14 @@ from song_generator.song_generator_pb2_grpc import SongGeneratorStub
 app = FastAPI()
 
 host = os.getenv('RESOURCE_SERVER')
-channel = grpc.insecure_channel(f'{host}:50051')
+
+def get_channel_credentials() -> grpc.ChannelCredentials:
+    with open("certs/ca.pem", "rb") as fp:
+        ca_cert = fp.read()
+
+    return grpc.ssl_channel_credentials(ca_cert)
+
+channel = grpc.secure_channel(f'{host}:50053', credentials=get_channel_credentials())
 client = SongGeneratorStub(channel=channel)
 
 

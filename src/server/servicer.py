@@ -9,7 +9,7 @@ from song_generator.song_generator_pb2_grpc import SongGeneratorServicer
 
 class SongGeneratorService(SongGeneratorServicer):
     def make_me_superstar(self, request: MakeMeSuperstarRequest, context: grpc.ServicerContext) -> Album:
-        cover = OpenAIProxy().create_album_cover(cover_description=str(request.cover_description))
+        cover = OpenAIProxy().create_album_cover(cover_description=request.cover_description)
         lyrics = OpenAIProxy().create_lyrics(
             song_theme=request.songs_theme,
             count=request.songs_count,

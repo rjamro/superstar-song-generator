@@ -11,8 +11,9 @@ WORKDIR /code
 
 COPY server/ /code
 COPY song_generator/ /code/song_generator/
+COPY certs/ /code/certs/
 
 RUN python -m pip install -r requirements.txt
 
-EXPOSE 50051
+EXPOSE 50053
 CMD [ "python", "main.py" ]
