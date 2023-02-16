@@ -40,7 +40,7 @@ class OpenAIProxy(object):
     @classmethod
     def _create_multiple_text_completion(cls, prompt: str, count: int, max_tokens:int = 1024) -> list[str]:
         response = openai.Completion.create(
-          model="text-curie-001",
+          model="text-curie-001", #"text-davinci-003"
           prompt=prompt,
           n=count,
           max_tokens=max_tokens,
