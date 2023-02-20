@@ -7,3 +7,5 @@ python -m grpc_tools.protoc \
 ./src/song_generator/protobufs/song_generator.proto \
 ./src/song_generator/protobufs/base.proto \
 ./src/song_generator/protobufs/enums.proto
+
+sed -i -E 's/^import.*_pb2/from . \0/' ./src/song_generator/*.py

@@ -2,8 +2,8 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-import song_generator.base_pb2 as base__pb2
-import song_generator.song_generator_pb2 as song__generator__pb2
+from . import base_pb2 as base__pb2
+from . import song_generator_pb2 as song__generator__pb2
 
 
 class SongGeneratorStub(object):
