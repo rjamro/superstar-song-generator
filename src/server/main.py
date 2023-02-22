@@ -1,3 +1,4 @@
+import asyncio
 import logging
 import os
 from concurrent import futures
@@ -25,20 +26,20 @@ def get_server_credentials() -> grpc.ServerCredentials:
     )
 
 
-def main():
-    interceptors = [LoggingInterceptor()]
-    server = grpc.server(
-        thread_pool=futures.ThreadPoolExecutor(max_workers=10),
-        interceptors=interceptors,
+async def main():
+    # interceptors = [LoggingInterceptor()]
+    server = grpc.aio.server(
+        migration_thread_pool=futures.ThreadPoolExecutor(max_workers=10),
+        # interceptors=interceptors,
     )
     add_SongGeneratorServicer_to_server(
         servicer=SongGeneratorService(),
         server=server,
     )
     server.add_secure_port('[::]:50053', server_credentials=get_server_credentials())
-    server.start()
+    await server.start()
     print('Listen to port 50053 [*]:')
-    server.wait_for_termination()
+    await server.wait_for_termination()
 
 if __name__ == '__main__':
-    main()
+    asyncio.run(main())
